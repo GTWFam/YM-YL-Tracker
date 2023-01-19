@@ -1,0 +1,33 @@
+{
+  "name": "ym_yl_tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "snow_start": "snowpack dev",
+    "build": "snowpack build",
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "dotenv": "^10.0.0",
+    "jquery": "^3.6.3",
+    "nodemon": "^2.0.12",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "popper.js": "^1.16.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "snowpack": "^3.8.8"
+  }
+}
