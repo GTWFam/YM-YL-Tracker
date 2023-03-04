@@ -10,7 +10,11 @@ router.get("/auth/login/success", (req, res) => {
     ? res.status(200).json({
         success: true,
         message: "Successfully authenticated",
-        user: req.user,
+        user: {
+          "uniqueId": req.user.id + "_" + req.user.nodeId,
+          "displayName": req.user.displayName,
+          "photos": req.user.photos
+        },
       })
     : res.status(401).json({
         message: "Failed to authenticate",
@@ -25,7 +29,7 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/protected",
+    successRedirect: "/dashboard",
     failureRedirect: "/auth/failure",
   })
 );
@@ -38,7 +42,7 @@ router.get(
 router.get(
   "/auth/github/callback",
   passport.authenticate("github", {
-    successRedirect: "/protected",
+    successRedirect: "/dashboard",
     failureRedirect: "/auth/failure",
   })
 );
@@ -52,10 +56,7 @@ router.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-router.get("/", isLoggedIn, (req, res) => {
-  res.sendFile(__dirname + "/build/index.html");
-});
-router.get("/protected", isLoggedIn, (req, res) => {
+router.get("/dashboard", isLoggedIn, (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
 router.get("/login", (req, res) => {

@@ -10,9 +10,10 @@
     "clean": "rm dist/bundle.js",
     "snow_start": "snowpack dev",
     "build": "snowpack build",
-    "start": "nodemon server.js"
+    "start": "nodemon -L server.js"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

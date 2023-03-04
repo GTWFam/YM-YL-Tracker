@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
       })
       .then((resObj) => {
         console.log(resObj.user);
+        console.log(resObj.user.photos[0]);
         this.setState({
           user: resObj.user,
         });
@@ -40,11 +42,8 @@ class App extends React.Component {
     } else {
       return (
         <>
-          <Navbar />
-          <h1>Hello {user.displayName}</h1>
-          <button type="button" class="btn btn-primary">
-            This is a bootstrap btn
-          </button>
+          <Navbar user={user} />
+          <Home user={user} />
         </>
       );
     }

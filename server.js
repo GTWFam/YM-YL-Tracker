@@ -1,4 +1,6 @@
 require("dotenv").config();
+const process = require('process');
+console.log(process.pid);
 const express = require("express");
 const app = express();
 const flash = require("express-flash");
@@ -22,7 +24,7 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); 
 
 passport.use(
   new GitHubStrategy(
@@ -53,10 +55,14 @@ passport.use(
 
 passport.serializeUser((user, done) => {
   done(null, user);
-});
+}); 
 
 passport.deserializeUser((user, done) => {
   done(null, user);
+});
+
+app.get("/", (req, res) => {
+  res.redirect("/dashboard");
 });
 
 app.use(express.static("build"));
