@@ -22,19 +22,6 @@ router.get("/auth/login/success", (req, res) => {
 });
 
 router.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["email", "profile"] })
-);
-
-router.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "/dashboard",
-    failureRedirect: "/auth/failure",
-  })
-);
-
-router.get(
   "/auth/github",
   passport.authenticate("github", { scope: ["email", "profile"] })
 );

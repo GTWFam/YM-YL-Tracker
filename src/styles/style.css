@@ -3,6 +3,11 @@
   color: #9c9c9c;
 }
 
+body {
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
 .navbar {
   padding: 2em !important;
   background-color: #0d1117;
