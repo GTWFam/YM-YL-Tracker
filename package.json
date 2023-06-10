@@ -33,6 +33,6 @@
     "react-icons": "^4.7.1"
   },
   "devDependencies": {
-    "snowpack": "^3.8.8"
+    "snowpack": "^3.2.2"
   }
 }
