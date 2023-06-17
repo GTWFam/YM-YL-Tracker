@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import ExpenseEntryTable from "./ExpenseEntryTable";
 import IncomeEntryTable from "./IncomeEntryTable";
+import AddForm from "./AddForm";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       entries: [],
+      addForm: "close",
     };
+    this.openForm = this.openForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   componentDidMount() {
@@ -24,9 +28,21 @@ class Home extends Component {
       });
   }
 
+  openForm() {
+    this.setState({
+      addForm: "open",
+    });
+  }
+
+  closeForm() {
+    this.setState({
+      addForm: "close",
+    });
+  }
+
   render() {
     const { user } = this.props;
-    const { entries } = this.state;
+    const { entries, addForm } = this.state;
     return (
       <>
         <div className="container-fluid">
@@ -34,6 +50,13 @@ class Home extends Component {
             <div className="col-md-3">
               <h1>Hello {user.displayName}</h1>
               <p>{user.uniqueId}</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-5">
+              <button className="btn btn-primary" onClick={this.openForm}>
+                New Entry
+              </button>
             </div>
           </div>
           <div className="row">
@@ -53,6 +76,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <AddForm formState={addForm} closeForm={this.closeForm} />
       </>
     );
   }

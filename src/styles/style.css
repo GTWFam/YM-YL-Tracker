@@ -55,3 +55,63 @@ ul.list li {
 .login-page .card .btn {
   font-size: 1.7em;
 }
+
+.add-form {
+  background-color: rgba(139, 148, 158, 0.7);
+  color:#0d1117;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 3%;
+}
+
+.add-form.open {
+  display: flex;
+}
+
+.add-form.close {
+  display: none;
+}
+
+.add-form .row {
+  width: 100%;
+}
+
+.add-form * {
+  background-color: unset;
+  color: #0d1117;
+}
+
+.add-form form .row {
+  --bs-gutter-x: 0; 
+}
+
+.incomeSwitch {
+  text-align: right;
+  margin-right: 1%;
+  --bs-gutter-x: 1;
+}
+
+.incomeSwitch #isIncome {
+  float: right;
+  margin-left: 0.5em;
+  margin-top: 0.3em;
+}
+
+.aspSwitchLabel {
+  margin-top: 3%;
+}
+#isAspiration {
+  margin-top: 6%;
+}
+
+.close.btn {
+  position: absolute;
+  font-size: 3em;
+  line-height: 55%;
+  top: 0;
+  right: 0;
+}

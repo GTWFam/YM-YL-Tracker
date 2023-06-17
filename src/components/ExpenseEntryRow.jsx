@@ -19,9 +19,9 @@ class ExpenseEntryRow extends Component {
     return (
       <tr>
         <td scope="col">{date}</td>
-        <td scope="col">{entry.category + ": " + entry.subcategory}</td>
         <td scope="col">{entry.dollars}</td>
         <td scope="col">{entry.lifeEnergy}</td>
+        <td scope="col">{entry.category + ": " + entry.subcategory}</td>
         <td scope="col">{entry.q1}</td>
         <td scope="col">{entry.q2}</td>
         <td scope="col">{entry.q3}</td>

@@ -14,9 +14,9 @@ class ExpenseEntryTable extends Component {
           <thead className="thead-light">
             <tr>
               <th scope="col">Date</th>
-              <th scope="col">Category</th>
               <th scope="col">Dollars</th>
               <th scope="col">Life Energy</th>
+              <th scope="col">Category</th>
               <th scope="col">Satisfaction</th>
               <th scope="col">Alignment</th>
               <th scope="col">Perspective</th>
