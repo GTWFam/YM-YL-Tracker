@@ -76,7 +76,11 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        <AddForm formState={addForm} closeForm={this.closeForm} />
+        <AddForm
+          formState={addForm}
+          uniqueId={user.uniqueId}
+          closeForm={this.closeForm}
+        />
       </>
     );
   }

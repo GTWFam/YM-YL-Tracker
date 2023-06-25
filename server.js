@@ -1,6 +1,6 @@
 require("dotenv").config();
-// const process = require('process');
-// console.log(process.pid);
+const process = require('process');
+console.log(process.pid);
 const express = require("express");
 const app = express();
 const flash = require("express-flash");

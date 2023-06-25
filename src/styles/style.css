@@ -66,6 +66,12 @@ ul.list li {
   flex-direction: column;
   overflow-y: scroll;
   padding: 3%;
+  max-height: 75vh;
+  min-width: 65vw;
+}
+
+#uniqueId {
+  display: none;
 }
 
 .add-form.open {
@@ -115,3 +121,41 @@ ul.list li {
   top: 0;
   right: 0;
 }
+
+.q_label {
+  display: flex;
+  align-items: center;
+}
+
+.q_toggle {
+  display: flex;
+  margin: 0.5% 0% !important;
+  background-color: #3e3e3e;
+}
+
+.q_toggle .form-check.form-check-inline {
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.q_toggle .form-check.form-check-inline input[type="radio"] {
+  display: none;
+}
+
+.q_toggle .form-check.form-check-inline label {
+  display: block;
+  padding: 3%;
+  color: #f0f0f0;
+  font-weight: 400;
+  text-align: center;
+  transition: all .5s 0s ease;
+}
+
+.q_toggle .form-check.form-check-inline input[type="radio"]:checked + label {
+  background-color: #f0f0f0;
+  color: #121212;
+  border-radius: 3%;
+  font-weight: bold;
+}
+
