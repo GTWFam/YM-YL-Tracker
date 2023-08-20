@@ -49,7 +49,6 @@ class Home extends Component {
           <div className="row">
             <div className="col-md-3">
               <h1>Hello {user.displayName}</h1>
-              <p>{user.uniqueId}</p>
             </div>
           </div>
           <div className="row">

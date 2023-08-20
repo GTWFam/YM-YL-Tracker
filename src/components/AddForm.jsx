@@ -11,10 +11,11 @@ class AddForm extends Component {
       subcategory: "",
       isIncomeCheck: false,
       isAspiration: false,
+      newCategory: "",
     };
     this.wrapperRef = React.createRef();
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.formSubmit = this.formSubmit.bind(this);
+    this.entryFormSubmit = this.entryFormSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -33,8 +34,13 @@ class AddForm extends Component {
     }
   }
 
-  formSubmit(event) {
-    document.getElementById("entryAdd").submit();
+  entryFormSubmit(event) {
+    console.log(event);
+    //document.getElementById("entryAdd").submit();
+  }
+
+  categoryFormSubmit(event) {
+    document.getElementById("categoryAdd").submit();
   }
 
   render() {
@@ -47,6 +53,7 @@ class AddForm extends Component {
       subcategory,
       isIncomeCheck,
       isAspiration,
+      newCategory,
     } = this.state;
     return (
       <>
@@ -62,21 +69,55 @@ class AddForm extends Component {
           >
             <span aria-hidden="true">&times;</span>
           </button>
+
+          <div className="row">
+            <div className="col">
+              <form
+                id="categoryAdd"
+                autoComplete="off"
+                action={"/addCategory?uniqueId=" + uniqueId}
+                method="POST"
+              >
+                <div className="row">
+                  <div className="col">
+                    <h3>Add Entry Category</h3>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label for="newCategory" className="col-sm-6 col-form-label">
+                    New Category
+                  </label>
+                  <div className="col-sm-6">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="newCategory"
+                      name="newCategory"
+                      value={newCategory}
+                      onChange={(e) =>
+                        this.setState({ newCategory: e.target.value })
+                      }
+                    ></input>
+                  </div>
+                </div>
+                <button
+                  className="btn btn-success"
+                  onClick={this.categoryFormSubmit}
+                >
+                  Add Entry
+                </button>
+              </form>
+            </div>
+          </div>
+          <hr />
           <div className="row">
             <div className="col">
               <form
                 id="entryAdd"
                 autoComplete="off"
-                action="/addEntry"
+                action={"/addEntry?uniqueId=" + uniqueId}
                 method="POST"
               >
-                <input
-                  value={uniqueId}
-                  type="text"
-                  id="uniqueId"
-                  name="uniqueId"
-                  readOnly
-                />
                 <div className="row">
                   <div className="col">
                     <h3>Add Expense/Income Entry</h3>
@@ -357,7 +398,10 @@ class AddForm extends Component {
                     </div>
                   </>
                 )}
-                <button className="btn btn-success" onClick={this.formSubmit}>
+                <button
+                  className="btn btn-success"
+                  onClick={this.entryFormSubmit}
+                >
                   Add Entry
                 </button>
               </form>
