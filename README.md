@@ -10,19 +10,38 @@ First install dependencies:
 npm install
 ```
 
-To run in dev mode mode:
+Add the following information into the .env file:
 
-```sh
-npm start
+```yaml
+PORT=
+SESSION_SECRET=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET==
+
+DB_HOST=
+DB_PASS=
+DB_USER=
+
+GIT_USER_ID=
+GIT_NODE_ID=
 ```
-
-Then go to http://localhost:8080
 
 To create a production build:
 
 ```sh
 npm run build
 ```
+
+To run in dev mode mode:
+
+```sh
+npm start
+```
+
+Then go to http://localhost:3000 or defined PORT from above
 
 ## Credits
 
